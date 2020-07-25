@@ -31,17 +31,17 @@ The command line template to launch the programm looks like this:
 ```
 ### Parameters meaning
 
-* data_name - target language name - english, german, swedish or latin
-* output_directory - the directory where results are going to be stored
-* substitutes_path1, substitutes_path2 - the paths to the substitutes dump files (.npz) corresponding with old and new corpora respectively. 
+* **data_name** - target language name - english, german, swedish or latin
+* **output_directory** - the directory where results are going to be stored
+* **substitutes_path1**, **substitutes_path2** - the paths to the substitutes dump files (.npz) corresponding with old and new corpora respectively. 
 If you desire to use the patterns combination you should add the prefix "+0.0+" to the end of the substitutes dump path. Example:
 
 ```
 ./\<mask\>\<mask\>-or-T-2ltr2f_topk200_fixspacesTrue.npz+0.0+
 ```
 
-* lemmatizing_method - 'none' - no lemmatization of the substitutes. 'single' - every substitute is replaced by its most probable lemma (only works for English and German). 
-* vectorizer name - 'count' to use default CountVectorizer, 'tfidf' to apply tf-idf.
+* **lemmatizing_method** - 'none' - no lemmatization of the substitutes. 'single' - every substitute is replaced by its most probable lemma (only works for English and German). 
+* **vectorizer_name** - 'count' to use default CountVectorizer, 'tfidf' to apply tf-idf.
 
 command line example:
 ```
@@ -54,19 +54,19 @@ To launch it type:
 ```
 python web/app.py --data_name=<data_name> --subst1_path=<subst1_path>
 ```
-Mandatory parameters:
-data_name - name of the dataset (language name for SemEval-2020 task-1 datasets)
-subst1_path - path to the substitutes dump file (.npz) for corpus 1 (it is the only file in case of WSI task) For patterns combination use postfix "+0.0+"
-Optional patameters:
-subst1_path - path to the substitutes dump file (.npz) for corpus 2 (required for SCD task) For patterns combination use postfix "+0.0+"
-vectorizer_name - string - 'count' to use default CountVectorizer, 'tfidf' to apply tf-idf.
-min_df - int - vactorization parameter - minimal document frequency between the substitutes sets for the substitute to be included into the vocabulary.
-max_df - int - maximal document frequency between the substitutes sets for the substitute to be included into the vocabulary.
-number_of_clusters - int - Number of clusters. IS silhouette score is used to determine the optimal number of clusters than this parameter is ignored.
-use_silhouette - bool - flag whether to use silhouette score to determine number of clusters
-k - int / float - SCD parameter (is ignored in WSI mode) - the acceptable "noise level" fot decision cluster (maximal number of examples from the other corpus) to select the cluster as decision cluster.
-n - int / float - SCD parameter (is ignored in WSI mode) - the required number of examples from one corpus in the cluster for it to be selected as decision cluster
-topk - int - number of substitutes limitation
-lemmatizing_method - string - whether is set to 'none' - no lemmatization or single - every substitute is replaced by its most probable lemma (in case of Russian language lemma is picked randomly).
+#### Mandatory parameters:
+* data_name - name of the dataset (language name for SemEval-2020 task-1 datasets)
+* subst1_path - path to the substitutes dump file (.npz) for corpus 1 (it is the only file in case of WSI task) For patterns combination use postfix "+0.0+"
+#### Optional patameters:
+* **subst1_path** - path to the substitutes dump file (.npz) for corpus 2 (required for SCD task) For patterns combination use postfix "+0.0+"
+* **vectorizer_name** - string - 'count' to use default CountVectorizer, 'tfidf' to apply tf-idf.
+* **min_df** - int - vactorization parameter - minimal document frequency between the substitutes sets for the substitute to be included into the vocabulary.
+* **max_df** - int - maximal document frequency between the substitutes sets for the substitute to be included into the vocabulary.
+* **number_of_clusters** - int - Number of clusters. IS silhouette score is used to determine the optimal number of clusters than this parameter is ignored.
+* **use_silhouette** - bool - flag whether to use silhouette score to determine number of clusters
+* **k** - int / float - SCD parameter (is ignored in WSI mode) - the acceptable "noise level" fot decision cluster (maximal number of examples from the other corpus) to select the cluster as decision cluster.
+* **n** - int / float - SCD parameter (is ignored in WSI mode) - the required number of examples from one corpus in the cluster for it to be selected as decision cluster
+* **topk** - int - number of substitutes limitation
+* **lemmatizing_method** - string - whether is set to 'none' - no lemmatization or single - every substitute is replaced by its most probable lemma (in case of Russian language lemma is picked randomly).
 If the value "all" is selected (only works for Russian language) each substitute is replaced by all possible variants of its lemmatization. 
 
