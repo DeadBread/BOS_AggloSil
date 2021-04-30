@@ -1,3 +1,6 @@
+This is the code for the paper:
+N Arefyev, V Zhikov. BOS at SemEval-2020 Task 1: Word Sense Induction via Lexical Substitution for Lexical Semantic Change Detection. In Proceedings of the Fourteenth Workshop on Semantic Evaluation, 171-179
+
 # BOS_AggloSil
 
 This repo contains code to reproduce the results of cs2020 team on the task 1 of SemEval-2020 workshop
